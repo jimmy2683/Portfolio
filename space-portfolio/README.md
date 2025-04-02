@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Space-Themed Portfolio with Interactive Astronaut Navigator
 
-## Getting Started
+This portfolio website features a unique interactive astronaut that serves as an intuitive navigation system for your portfolio.
 
-First, run the development server:
+## 🌟 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Interactive Astronaut Navigator**: Click/tap the holographic markers around the astronaut to navigate between sections
+- **3D Space Effects**: Immersive starfield background with shooting stars and nebula effects
+- **Responsive Design**: Works seamlessly on mobile, tablet, and desktop devices
+- **Dark/Light Mode**: Toggle between space and light themes
+- **Project Showcases**: Interactive 3D cards for your projects with detailed modals
+- **Optimized Performance**: Careful optimizations to ensure smooth animations even on mobile devices
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Required Project Images
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+For the portfolio to display your projects correctly, you need to add the following images to your `/public` folder:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. `/public/vr-visit.jpg` - VR-VISIT project image
+2. `/public/skibbrizz.jpg` - Skibbrizz social media app image
+3. `/public/ainexus.jpg` - AINexus AI recommendation engine image
+4. `/public/smart-traffic.jpg` - Smart Traffic app image
+5. `/public/job-portal.jpg` - Job Portal System image
+6. `/public/ddr-simulator.jpg` - DDR Simulator UI image
+7. `/public/profile.jpg` - Your profile picture
 
-## Learn More
+### 🖼️ Image Fallbacks
 
-To learn more about Next.js, take a look at the following resources:
+Don't worry if you don't have all images ready! The site includes intelligent fallbacks that will generate color gradients with the project's first letter if an image is missing.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 📏 Recommended Image Dimensions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Project images: 800×600px or 1200×800px (16:9 ratio)
+- Profile image: 500×500px (square/rounded)
 
-## Deploy on Vercel
+## 🛠️ Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is built with:
+- Next.js
+- Three.js for 3D effects
+- TailwindCSS for styling
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Getting Started
+
+1. Make sure you have Node.js installed
+2. Run `npm install` to install dependencies
+3. Run `npm run dev` to start the development server
+4. Open http://localhost:3000 in your browser
+
+## 📱 Mobile Optimization
+
+The site automatically detects mobile devices and:
+- Simplifies the 3D effects to maintain performance
+- Adjusts the astronaut navigator for better mobile interaction
+- Provides a mobile menu for navigation
