@@ -8,6 +8,9 @@ export default function HeroScene({ darkMode, activeSection, onNavigate, isHome 
   const prevActiveSection = useRef(activeSection);
 
   useEffect(() => {
+    // Store the current value of the ref in a variable that can be safely used in cleanup
+    const currentContainer = containerRef.current;
+
     // Check if we're on a mobile device
     const isMobile = window.innerWidth < 768;
     const isSmallScreen = window.innerWidth < 1024;
@@ -749,9 +752,9 @@ export default function HeroScene({ darkMode, activeSection, onNavigate, isHome 
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
-      containerRef.current?.removeEventListener('mousemove', onMouseMove);
-      containerRef.current?.removeEventListener('click', onClick);
-      containerRef.current?.removeEventListener('touchstart', onTouchStart);
+      currentContainer?.removeEventListener('mousemove', onMouseMove);
+      currentContainer?.removeEventListener('click', onClick);
+      currentContainer?.removeEventListener('touchstart', onTouchStart);
 
       // Remove all HTML labels
       for (const id in navLabels) {

@@ -83,7 +83,7 @@ export default function Home() {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [sectionRefs]);
 
   useEffect(() => {
     // Generate random floating elements for visual effect
@@ -658,7 +658,7 @@ export default function Home() {
           </div>
         
           <h2 className={`text-3xl md:text-4xl font-bold mb-8 sm:mb-12 bg-clip-text text-transparent bg-gradient-to-r ${darkMode ? 'from-blue-400 to-purple-500' : 'from-blue-600 to-purple-700'} text-center relative z-10`}>
-            Let's Connect
+            Let&apos;s Connect
           </h2>
           
           <div className="max-w-2xl mx-auto">
@@ -728,7 +728,7 @@ export default function Home() {
                         className={`form-field-input relative w-full px-4 py-3 bg-transparent ${
                           darkMode ? 'text-white/90 focus:text-white' : 'text-blue-900 focus:text-blue-800'
                         } rounded-lg border-none outline-none min-h-[120px]`}
-                        placeholder="Hello! I'd like to connect about..."
+                        placeholder="Hello! I&apos;d like to connect about..."
                       ></textarea>
                     </div>
                   </div>
