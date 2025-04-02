@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import CustomCursor from "../components/CustomCursor";
@@ -47,12 +47,19 @@ export default function Home() {
   const [floatingElements, setFloatingElements] = useState([]);
   const [cursorTrails, setCursorTrails] = useState([]);
 
-  const sectionRefs = {
-    home: useRef(null),
-    projects: useRef(null),
-    about: useRef(null),
-    contact: useRef(null),
-  };
+  // Define refs at the top level, not inside hooks
+  const homeRef = useRef(null);
+  const projectsRef = useRef(null);
+  const aboutRef = useRef(null);
+  const contactRef = useRef(null);
+  
+  // Use useMemo to create an object that references these refs
+  const sectionRefs = useMemo(() => ({
+    home: homeRef,
+    projects: projectsRef,
+    about: aboutRef,
+    contact: contactRef,
+  }), []);
 
   useEffect(() => {
     setIsMounted(true);
@@ -205,7 +212,7 @@ export default function Home() {
       description: "Blueprint-to-VR converter for architectural visualization",
       image: "/vr-visit.jpg",
       tech: ["Unity", "VR", "3D Modeling", "Architecture"],
-      details: "VR-VISIT transforms architectural blueprints into immersive virtual reality experiences, allowing clients to explore buildings before they're constructed. Currently overcoming budget constraints and hardware limitations to deliver impressive visualization capabilities.\n\nThis solution bridges the gap between technical blueprints and client understanding by providing a fully immersive environment where clients can walk through their future spaces, making informed decisions about layout, design, and functionality before construction begins."
+      details: "VR-VISIT transforms architectural blueprints into immersive virtual reality experiences, allowing clients to explore buildings before they&apos;re constructed. Currently overcoming budget constraints and hardware limitations to deliver impressive visualization capabilities.\n\nThis solution bridges the gap between technical blueprints and client understanding by providing a fully immersive environment where clients can walk through their future spaces, making informed decisions about layout, design, and functionality before construction begins."
     },
     {
       title: "Skibbrizz 🎥",
@@ -450,7 +457,7 @@ export default function Home() {
         {/* Hero Section with 3D tilt effect */}
         <section 
           id="home" 
-          ref={sectionRefs.home} 
+          ref={homeRef} 
           className="min-h-[90vh] flex flex-col items-center justify-center relative py-10 perspective-1000"
         >
           <div className="transform transition-all duration-1000 hover:rotate-x-1 hover:rotate-y-1 w-full max-w-3xl mx-auto">
@@ -543,7 +550,7 @@ export default function Home() {
         </section>
 
         {/* Projects Section - Fixed card overflow and improved responsiveness */}
-        <section id="projects" ref={sectionRefs.projects} className="py-16 sm:py-20">
+        <section id="projects" ref={projectsRef} className="py-16 sm:py-20">
           <h2 className={`text-3xl md:text-4xl font-bold mb-8 sm:mb-12 bg-clip-text text-transparent bg-gradient-to-r ${darkMode ? 'from-blue-400 to-purple-500' : 'from-blue-600 to-purple-700'} text-center`}>
             Ongoing Projects
           </h2>
@@ -558,7 +565,7 @@ export default function Home() {
         </section>
         
         {/* About Section with theme-aware 3D effect */}
-        <section id="about" ref={sectionRefs.about} className="py-16 sm:py-20 relative">
+        <section id="about" ref={aboutRef} className="py-16 sm:py-20 relative">
           <div className="absolute inset-0 -z-10">
             <div className={`absolute top-1/3 -left-24 w-64 h-64 rounded-full ${
               darkMode ? 'bg-blue-500/5' : 'bg-blue-600/10'
@@ -595,13 +602,13 @@ export default function Home() {
             <div className="w-full md:w-3/5 lg:w-2/3">
               <div className={`space-y-4 ${darkMode ? 'text-white/80' : 'text-blue-900/90'}`}>
                 <p>
-                  I'm a Computer Science undergraduate at IIT Hyderabad (Batch 2027) with a passion for creating immersive digital experiences that blend cutting-edge technology with creative design.
+                  I&apos;m a Computer Science undergraduate at IIT Hyderabad (Batch 2027) with a passion for creating immersive digital experiences that blend cutting-edge technology with creative design.
                 </p>
                 <p>
-                  With expertise in web development using Next.js, Go, and PostgreSQL, I build solutions that are not only functional but visually captivating. I'm also exploring AI/ML, VR, and participate in CTF competitions.
+                  With expertise in web development using Next.js, Go, and PostgreSQL, I build solutions that are not only functional but visually captivating. I&apos;m also exploring AI/ML, VR, and participate in CTF competitions.
                 </p>
                 <p>
-                  As the founder of AINexus, I'm constantly exploring innovative approaches and pushing the boundaries of what's possible in tech. When I'm not coding, you can find me participating in hackathons or contributing to open source projects.
+                  As the founder of AINexus, I&apos;m constantly exploring innovative approaches and pushing the boundaries of what&apos;s possible in tech. When I&apos;m not coding, you can find me participating in hackathons or contributing to open source projects.
                 </p>
               </div>
               
@@ -625,7 +632,7 @@ export default function Home() {
         </section>
         
         {/* Contact Section with enhanced 3D effects */}
-        <section id="contact" ref={sectionRefs.contact} className="py-16 sm:py-20 relative overflow-hidden">
+        <section id="contact" ref={contactRef} className="py-16 sm:py-20 relative overflow-hidden">
           {/* Contact section animated background elements */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             {/* Floating orbs with glow effects */}
